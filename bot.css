@@ -1,0 +1,64 @@
+body {
+    background: url("img/wood.jpg");
+    margin: 0px;
+}
+
+#container {
+    width: 100%;
+}
+
+.briefCase {
+    margin-left: auto;
+    margin-right: auto;
+    height:500px;
+    width:700px;
+    background-image: url("img/briefcase1.png");
+    position: relative;
+    animation: animateCase 3s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes animateCase {
+0%           { background:url('img/briefcase1.png') 0 0; }
+25%          { background:url('img/briefcase1.png') 0 0; }
+50%          { background:url('img/briefcase2.png') 0 0; }
+75%          { background:url('img/briefcase3.png') 0 0; }
+100%         { background:url('img/briefcase4.png') 0 0; }
+}
+
+button#ledon-button {
+  outline: none;
+  background : #CC0000;
+  width: 9.6em;
+  height: 9.6em;
+  margin-left: 43.5%;
+    margin-top: 27%;
+  position: absolute;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  animation:animateButton 7s;
+
+}
+@-webkit-keyframes animateButton {
+0%           { visibility: hidden;}
+50%          { visibility: hidden;}
+100%         { visibility: visible;}
+}
+
+
+button#ledon-button:active {
+  box-shadow: -2px 2px 2px rgba(51,0,0,1);
+}
+
+p#buttonPressed {
+  margin: 0;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 3em;
+
+
+}
+
+
