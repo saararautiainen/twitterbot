@@ -39,6 +39,7 @@ button#ledon-button {
   border-radius: 50%;
   display: inline-block;
   animation:animateButton 7s;
+  cursor: pointer;
 
 }
 @-webkit-keyframes animateButton {
