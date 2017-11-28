@@ -11,6 +11,9 @@ Array.prototype.pick = function() {
     return this[Math.floor(Math.random()*this.length)];
 }
 
+
+
+
 //list of verbs, nouns, adjectives used for sentence building NEEDS EDITING AND THOUGHT BEHIND STRUCTURE
 var verb = [
     "runs",
@@ -30,7 +33,7 @@ var singVerb = [
     "sit still",
     "run",
     "jump",
-    "hold",
+    "pet animals",
     "drink",
     "eat",
     "sleep",
@@ -201,27 +204,26 @@ var animal = [
 
 var people = [
 
-    "Katy Perry",
-    "Justin Bieber",
-    "Barack Obama",
-    "Taylor Swift",
-    "Rihanna",
-    "Ellen DeGeneres",
-    "Lady Gaga",
-    "Cristiano Ronaldo",
-    "Justin Timberlake",
-    "Kim Kardashian",
-    "Britney Spears",
-    "Ariana Grande",
-    "Selena Gomez",
-    "Demi Lovato",
-    "Jimmy Fallon",
-    "Shakira",
-    "Jennifer Lopez",
-    "Donald J. Trump",
-    "Bill Gates",
-    "LeBron James",
-    "Trump",
+    ["Katy Perry","@katyperry"],
+    ["Justin Bieber","@justinbieber"],
+    ["Barack Obama", "@BarackObama"],
+    ["Taylor Swift", "@taylorswift13"],
+    ["Rihanna", "@rihanna"],
+    ["Ellen DeGeneres", "@TheEllenShow"],
+    ["Lady Gaga","@ladygaga"],
+    ["Cristiano Ronaldo", "@Cristiano"],
+    ["Justin Timberlake", "@jtimberlake"],
+    ["Kim Kardashian","@KimKardashian"],
+    ["Britney Spears","@britneyspears"],
+    ["Ariana Grande", "@ArianaGrande"],
+    ["Selena Gomez","@selenagomez"],
+    ["Demi Lovato", "@ddlovato"]
+    ["Jimmy Fallon","@jimmyfallon"],
+    ["Shakira","@shakira"],
+    ["Jennifer Lopez","@JLo"],
+    ["Donald J. Trump","@realDonaldTrump"],
+    ["Bill Gates","@BillGates"],
+    ["LeBron James","@KingJames"]
 
 
 ];
@@ -238,27 +240,47 @@ app.post('/LEDon', function(req, res) {
     var co = color.pick();
     var ani = animal.pick();
     var sv = singVerb.pick();
-    var pe = people.pick();
-    var peTwo = people.pick();
+
+    //Pick these three people from the same array, people
+    var peObj = people.pick();
+    var peTwoObj = people.pick();
+    var receiveObj = people.pick();
+
+    //If first person and second person are the same, pick a new one
+    while ( peObj === peTwoObj)
+    {
+        peTwoObj = people.pick()
+    }
+
+    // If the two people objects are same as the receiver, pick a new receiver 
+    while ((peObj === receiveObj) || (peTwoObj === receiveObj))
+    {
+        receiveObj = people.pick()
+    }
+
+    //pick the people from the two different arrays inside the people array
+    var pe = peObj[0];
+    var peTwo = peTwoObj[0];
+    var receive = receiveObj[1];
 
     switch(Math.floor(Math.random()*6)) {
         case 0:
-            var sentence = "The " + adj + " " + n + " " + v + " with my " + ns + ".";
+            var sentence = "Hey " + receive + "! The " + adj + " " + n + " " + v + " with my " + ns + ".";
             break;
         case 1:
-            var sentence = "A " + adj + " " + ani + " ate " + pe + "'s' " + ns + ".";
+            var sentence = "Hey " + receive + "! A " + adj + " " + ani + " ate " + pe + "'s' " + ns + ".";
             break;
         case 2:
-            var sentence = "Why did " + pe + " and " + peTwo + " " + v + " together?";
+            var sentence = "Hey " + receive + "! Why did " + pe + " and " + peTwo + " " + sv + " together?";
             break;
         case 3:
-            var sentence = "Tomorrow I will " + sv + " with " + pe + ", " + peTwo + " and their " + ani + ".";
+            var sentence = "Hey " + receive + "! Tomorrow I will " + sv + " with " + pe + ", " + peTwo + " and their " + ani + ".";
             break;
         case 4:
-            var sentence = "I love " + pe + "'s " + adj + " " + n + ".";
+            var sentence = "Hey " + receive + "! I love " + pe + "'s " + adj + " " + n + ".";
             break;
         case 5:
-            var sentence = "I think " + pe + " looks like a " + co + " " + ani + "." ;
+            var sentence = "Hey " + receive + "! I think " + pe + " looks like a " + co + " " + ani + "." ;
             break;
        
     }
@@ -267,5 +289,10 @@ app.post('/LEDon', function(req, res) {
     });
     // Run your LED toggling code here
 });
+
+function sentenceCreate(pe, peTwo, receive)
+{
+
+}
 
 app.listen(1337);
