@@ -42,7 +42,7 @@ var singVerb = [
     "invent things",
     "deceive",
     "force",
-    "scare",
+    "scare little kids",
 ];
 
 var noun = [
@@ -290,9 +290,6 @@ app.post('/LEDon', function(req, res) {
     // Run your LED toggling code here
 });
 
-function sentenceCreate(pe, peTwo, receive)
-{
 
-}
 
 app.listen(1337);
