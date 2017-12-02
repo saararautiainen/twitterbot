@@ -12,8 +12,6 @@ Array.prototype.pick = function() {
 }
 
 
-
-
 //list of verbs, nouns, adjectives used for sentence building NEEDS EDITING AND THOUGHT BEHIND STRUCTURE
 var verb = [
     "runs",
@@ -68,22 +66,6 @@ var noun = [
     "boat",
     "art",
     "show",
-    "day",
-    "salt",
-    "bee",
-    "rose",
-    "sky",
-    "ice",
-    "sheep",
-    "bike",
-    "limit",
-    "son",
-    "nose",
-    "food",
-    "spy",
-    "swim",
-    "land",
-    "person",
 ];
 
 var adjective = [
@@ -173,8 +155,6 @@ var color = [
     "dim",
     "gold",
     "violet",
-    "royal blue",
-    "dark Cyan",
     "deep pink",
     "tan",
 ];
@@ -286,6 +266,7 @@ app.post('/LEDon', function(req, res) {
     }
     //posts to our account
     Twitter.post('statuses/update', { status: sentence }, function (error, data, response){
+        res.status(204).send();
     });
     // Run your LED toggling code here
 });

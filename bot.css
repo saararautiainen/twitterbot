@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Computer;
+    src: url(fonts/computerpixel-7.ttf);
+}
+
 body {
     background: url("img/wood.jpg");
     margin: 0px;
@@ -5,18 +10,47 @@ body {
 
 #container {
     width: 100%;
+    position: relative;
+
 }
 
-.briefCase {
-    margin-left: auto;
-    margin-right: auto;
+/*.parent{
+  
+    float: left;
+    text-align: center;
+
+}*/
+
+#screen {
+  width: 650px;
+  height: 500px;
+  display: inline-block;
+  z-index: 1;
+  float: left;
+  margin-top: 10%;
+  margin-left:2%;
+  background-image: url("img/screen.png");
+  background-size: contain;
+
+}
+
+
+
+#briefCase {
+    display: inline-block;
+    margin-left: 50%;
+    margin-top: -10%;
     height:500px;
     width:700px;
     background-image: url("img/briefcase1.png");
-    position: relative;
+    position: absolute;
     animation: animateCase 3s;
     animation-fill-mode: forwards;
+    float:left;
 }
+
+
+
 
 @-webkit-keyframes animateCase {
 0%           { background:url('img/briefcase1.png') 0 0; }
@@ -42,6 +76,35 @@ button#ledon-button {
   cursor: pointer;
 
 }
+
+h2 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 4s steps(40, end),
+    blink-caret .75s step-end infinite;
+  width: 60%;
+  margin-top: 5em;
+  font-family: Computer;
+  font-size: 1.8em;
+  
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 60% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
 @-webkit-keyframes animateButton {
 0%           { visibility: hidden;}
 50%          { visibility: hidden;}
