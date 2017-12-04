@@ -22,8 +22,8 @@ body {
 }*/
 
 #screen {
-  min-width: 650px;
-  min-height: 500px;
+  width: 650px;
+  height: 500px;
   display: inline-block;
   z-index: 1;
   float: left;
@@ -35,7 +35,18 @@ body {
 }
 
 #screen-text{
-  width: 630px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .10em; /* Adjust as needed */
+  animation: 
+    typing 4s steps(40, end),
+    blink-caret .75s step-end infinite;
+  width: 60%;
+  margin-top: 5em;
+  font-family: Computer;
+  font-size: 1.8em;
 
 }
 
@@ -45,8 +56,8 @@ body {
     display: inline-block;
     margin-left: 50%;
     margin-top: -10%;
-    min-height:500px;
-    min-width:700px;
+    height:500px;
+    width:700px;
     background-image: url("img/briefcase1.png");
     background-size: 100%;
     position: absolute;
@@ -83,21 +94,7 @@ button#ledon-button {
 
 }
 
-h2 {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid black; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .10em; /* Adjust as needed */
-  animation: 
-    typing 4s steps(40, end),
-    blink-caret .75s step-end infinite;
-  width: 60%;
-  margin-top: 5em;
-  font-family: Computer;
-  font-size: 1.8em;
-  
-}
+
 
 /* The typing effect */
 @keyframes typing {
