@@ -1,15 +1,44 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>Twitter Russian Roulette</title>
 <link rel="stylesheet" type="text/css" href="bot.css">
+<script>
+var count=0;
 
+$('ledon-button').click(function(){
+
+    doCount();
+    writeOutput();
+    console.log(contents);
+
+});
+
+function writeOutput() {
+    var contents = $('#text-screen').html(); 
+    
+    if(count == 1) {
+       contents = contents + count;
+    } else {
+      contents = contents + ',' + count; 
+    }
+    
+    
+    $('#text-screen').html(contents);
+    
+}
+
+function doCount() {
+    count++;    
+}
+</script>
 </head>
 <body>
     <div id="container">
         	<div id="screen">
-        	<h2>Welcome To twitter Roulette</h2>
+                <div id="screen-text">
+        	       <h2 id ="Welcome">Welcome To Twitter Roulette</h2>
+                </div>
         	<div> 
 
 	        <div id = "briefCase">

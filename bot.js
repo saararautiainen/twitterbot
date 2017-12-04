@@ -1,5 +1,7 @@
 var express = require('express');
+var cors = require('cors');
 var app = express();
+app.use(cors());
 
 var
     twit = require('twit'),
@@ -211,7 +213,7 @@ var people = [
 
 
 app.post('/LEDon', function(req, res) {
-    console.log('LEDon button pressed!');
+        console.log('LEDon button pressed!');
 
     var v = verb.pick();
     var n = noun.pick();
@@ -267,10 +269,10 @@ app.post('/LEDon', function(req, res) {
     //posts to our account
     Twitter.post('statuses/update', { status: sentence }, function (error, data, response){
         res.status(204).send();
+        console.log(sentence);
     });
     // Run your LED toggling code here
 });
-
 
 
 app.listen(1337);
