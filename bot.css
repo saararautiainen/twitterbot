@@ -6,6 +6,7 @@
 body {
     background: url("img/wood.jpg");
     margin: 0px;
+    
 }
 
 #container {
@@ -30,8 +31,8 @@ body {
 
 #screen-text, #welcome{
   padding-left:  4.5em;
-  margin: 0 auto 0; 
-  letter-spacing: .10em; /* Adjust as needed */ 
+  margin: 0 auto 0;
+  letter-spacing: .10em; /* Adjust as needed */
   width: 55%;
   overflow: scroll;
   font-family: Computer;
@@ -47,8 +48,8 @@ body {
 
 #welcome{
   width: 62%;
-  margin: 3.7em auto 0; 
-  
+  margin: 3.7em auto 0;
+
 
 }
 
@@ -131,8 +132,3 @@ button#ledon-button {
 button#ledon-button:active {
   box-shadow: -2px 2px 2px rgba(51,0,0,1);
 }
-
-
-
-
-
