@@ -1,1 +1,1 @@
-![My image](saararautiainen.github.com/saararautiainen/img/twitterroulette.png)
+![My image](saararautiainen.github.io/saararautiainen/img/twitterroulette.png)
